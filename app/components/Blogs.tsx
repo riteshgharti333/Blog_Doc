@@ -78,7 +78,7 @@ const Blogs = () => {
                   </div>
 
                   <span>{blog.readTime}</span>
-                </div>
+              </div>
 
                 {/* Read More - already has correct link */}
                 <div className="mt-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">

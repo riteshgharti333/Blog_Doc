@@ -19,8 +19,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gmaal Diary - Travel Journal",
+  title: "Cherry Diary - Travel Journal",
   description: "Documenting real journeys, one place at a time",
+   icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
