@@ -1,11 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Flower2, Leaf, X, MapPin } from "lucide-react";
 import Image from "next/image";
 
 const VisualDiary = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Set mounted state
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Lock body scroll when lightbox is open - FIXED
+  useEffect(() => {
+    // Only run on client
+    if (!isMounted) return;
+
+    if (selectedImage !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedImage, isMounted]);
 
   const photos = [
     {
@@ -66,17 +88,10 @@ const VisualDiary = () => {
     }
   ];
 
-  // Lock body scroll when lightbox is open
-  useState(() => {
-    if (selectedImage !== null) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  });
+  // Don't render on server
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <section className="py-24 px-4 overflow-hidden relative">
