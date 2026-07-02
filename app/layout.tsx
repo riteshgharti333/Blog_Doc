@@ -4,6 +4,9 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Leaf, Pen, MapPin, Book, Camera, Compass, Heart, Feather } from "lucide-react";
+import NewsletterSignup from "./components/NewsletterSignup";
+import ScrollFlower from "./components/ScrollFlower";
+import CustomScrollbar from "./components/CustomScrollbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -185,6 +188,9 @@ export default function RootLayout({
         <div className="relative z-10 flex flex-col min-h-full">
           <Navbar />
           <main className="flex-grow">{children}</main>
+          <NewsletterSignup />
+          <ScrollFlower />
+          <CustomScrollbar />
           <Footer />
         </div>
       </body>

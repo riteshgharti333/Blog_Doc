@@ -16,8 +16,8 @@ const AboutPage = () => {
             <div className="w-12 h-px bg-amber-300/60" />
           </div>
 
-          <h1 className="text-7xl md:text-8xl font-light text-stone-800 mb-6">
-            About
+          <h1 className="text-5xl md:text-8xl font-light text-stone-800 mb-6">
+            About Me
           </h1>
 
           {/* Floral decoration */}
@@ -49,7 +49,7 @@ const AboutPage = () => {
               {/* First paragraph */}
               <div className="space-y-3 ">
                 <p className="text-2xl md:text-3xl font-light text-stone-800 leading-relaxed">
-                  About Gmaal Diary
+                  About Cherry Diary
                 </p>
                 <div className="w-20 h-px bg-amber-300/60 mx-auto md:mx-0" />
               </div>

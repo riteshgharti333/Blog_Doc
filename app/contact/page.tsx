@@ -16,8 +16,8 @@ const ContactPage = () => {
             <div className="w-12 h-px bg-amber-300/60" />
           </div>
 
-          <h1 className="text-7xl md:text-8xl font-light text-stone-800 mb-6">
-            Contact
+          <h1 className="text-5xl md:text-8xl font-light text-stone-800 mb-6">
+            Contact Me
           </h1>
 
           {/* Floral decoration */}
@@ -131,7 +131,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p className="text-sm text-stone-500 font-light">Email</p>
-                    <p className="text-stone-700 font-light">hello@gmaaldiary.com</p>
+                    <p className="text-stone-700 font-light">hello@cherrydiary.com</p>
                   </div>
                 </div>
 

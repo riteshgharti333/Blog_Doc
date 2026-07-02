@@ -5,6 +5,13 @@ import Link from 'next/link'
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
+   const navLinks = [
+    { href: '/blogs/recent', label: 'Recent Blogs' },
+    { href: '/blogs/popular', label: 'Popular Blogs' },
+    { href: '/about', label: 'About Me' },
+    { href: '/contact', label: 'Contact Me' },
+  ]
+
   return (
     <footer className="relative py-16 px-4  border-t border-stone-200/50">
       {/* Background floral elements */}
@@ -21,7 +28,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <MapPin className="w-6 h-6 text-amber-600" />
-              <span className="text-2xl font-light text-stone-800">Gmaal Diary</span>
+              <span className="text-2xl font-light text-stone-800">Cherry Diary</span>
             </div>
             <p className="text-stone-500 font-light leading-relaxed">
               Documenting real journeys, one place at a time. No filters, just authentic experiences.
@@ -38,14 +45,14 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-light text-stone-700 tracking-wide">Explore</h3>
             <ul className="space-y-3">
-              {['Blogs', 'About Me', 'Contact Me', 'Categories'].map((item) => (
-                <li key={item}>
+              {navLinks.map((item) => (
+                <li key={item.label}>
                   <Link 
-                    href={`/${item.toLowerCase().replace(' ', '-')}`}
+                    href={item.href}
                     className="text-stone-500 hover:text-amber-700 transition-colors font-light flex items-center gap-2 group"
                   >
                     <span className="w-0 group-hover:w-2 h-px bg-amber-400 transition-all" />
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -116,7 +123,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-500 font-light">
           <div className="flex items-center gap-2">
-            <span>© {currentYear} Gmaal Diary</span>
+            <span>© {currentYear} Cherry Diary</span>
             <span className="w-1 h-1 rounded-full bg-amber-300/60" />
             <span>All rights reserved</span>
           </div>

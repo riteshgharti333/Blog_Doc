@@ -11,3 +11,7 @@ body {
   color: var(--foreground);
   font-family: 'Outfit', sans-serif;
 }
+
+button{
+  cursor: pointer;
+}

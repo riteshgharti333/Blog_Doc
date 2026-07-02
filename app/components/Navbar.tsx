@@ -18,7 +18,8 @@ const Navbar = () => {
   }, [])
 
   const navLinks = [
-    { href: '/blog', label: 'Blogs' },
+    { href: '/blogs/recent', label: 'Recent Blogs' },
+    { href: '/blogs/popular', label: 'Popular Blogs' },
     { href: '/about', label: 'About Me' },
     { href: '/contact', label: 'Contact Me' },
   ]
@@ -40,7 +41,7 @@ const Navbar = () => {
           >
             <BookHeart className="w-7 h-7 md:w-8 md:h-8 text-amber-600 transition-transform group-hover:rotate-12" />
             <span className="bg-gradient-to-r from-stone-800 to-stone-600 bg-clip-text text-transparent">
-              Gmaal Diary
+              Cherry Diary
             </span>
           </Link>
 

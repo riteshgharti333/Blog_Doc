@@ -1,22 +1,49 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
-const postsDirectory = path.join(process.cwd(), 'content/posts')
+export interface Post {
+  slug: string;
+  title: string;
+  date: string;
+  description: string;
+  image: string;
+  author: string;
+  location: string;
+  category: string;
+  readTime: string;
+  tags: string[];
+}
 
-export function getAllPosts() {
-  const files = fs.readdirSync(postsDirectory)
+const postsDirectory = path.join(process.cwd(), "app/content/posts");
 
-  return files.map((file) => {
-    const slug = file.replace('.mdx', '')
-    const fullPath = path.join(postsDirectory, file)
-    const fileContent = fs.readFileSync(fullPath, 'utf-8')
+export function getAllPosts(): Post[] {
+  const files = fs.readdirSync(postsDirectory);
 
-    const { data } = matter(fileContent)
+  return files
+    .filter((file) => file.endsWith(".mdx"))
+    .map((file) => {
+      const slug = file.replace(".mdx", "");
+      const fullPath = path.join(postsDirectory, file);
+      const fileContent = fs.readFileSync(fullPath, "utf8");
 
-    return {
-      slug,
-      ...data,
-    }
-  })
+      const { data } = matter(fileContent);
+
+      return {
+        slug,
+        title: data.title ?? "",
+        date: data.date ?? "",
+        description: data.description ?? "",
+        image: data.image ?? "",
+        author: data.author ?? "",
+        location: data.location ?? "",
+        category: data.category ?? "",
+        readTime: data.readTime ?? "",
+        tags: data.tags ?? [],
+      };
+    })
+    .sort(
+      (a, b) =>
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
 }
