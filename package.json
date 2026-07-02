@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:ignore": "next build --no-lint || echo 'Build completed with errors'q",
     "start": "next start",
     "lint": "eslint"
   },
